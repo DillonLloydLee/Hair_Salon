@@ -71,5 +71,9 @@
             }
             return $found_client;
         }
+
+        function changeName($new_name) {
+
+        }
     }
 ?>

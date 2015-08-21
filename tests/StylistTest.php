@@ -100,6 +100,20 @@
 
             $this->assertEquals($test_stylist, $result);
         }
+
+        function test_changeName() {
+            $name = "Barabababa Styliste";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $new_name = "Barbara Styler";
+
+            $test_stylist->changeName($new_name);
+            $result = $test_stylist->getName();
+
+            $this->assertEquals("Barbara Styler", $result);
+        }
     }
 
 ?>
