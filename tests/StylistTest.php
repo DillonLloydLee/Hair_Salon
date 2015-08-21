@@ -146,7 +146,6 @@
             $test_stylist->deleteOne();
             $result = Client::getAll();
 
-            var_dump($result);
             $this->assertEquals([], $result);
         }
     }

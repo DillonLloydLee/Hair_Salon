@@ -136,19 +136,56 @@
         function test_getAppointment() {
             $name = "Barbara Styler";
             $id = null;
-            $appointment = '0000-00-00';
             $appointment = "1984-02-32";
             $test_stylist = new Stylist($name, $id);
             $test_stylist->save();
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Client($description, $id, $stylist_id, $appointment, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
             $test_client->save();
 
             $result = $test_client->getAppointment();
 
             $this->assertEquals("1984-02-32", $result);
+        }
+
+        function test_changeDescription() {
+            $name = "Barbara Styler";
+            $id = null;
+            $appointment = "1984-02-32";
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $description = "Johnny Longhair";
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
+            $test_client->save();
+
+            $new_description = "Johnny Baldface";
+
+            $test_client->changeDescription($new_description);
+
+            $this->assertEquals("Johnny Baldface", $test_client->getDescription());
+        }
+
+        function test_deleteOne() {
+            $name = "Barbara Styler";
+            $id = null;
+            $appointment = "1984-02-32";
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $description = "Johnny Longhair";
+            $stylist_id = $test_stylist->getId();
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
+            $test_client->save();
+
+            $test_client->deleteOne();
+            $result = Client::getAll();
+
+            $this->assertEquals([], $result);
+
         }
 
     }

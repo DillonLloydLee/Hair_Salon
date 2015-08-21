@@ -72,8 +72,14 @@
             return $found_client;
         }
 
-        function changeName($new_name) {
-
+        function changeDescription($new_description) {
+            $GLOBALS['DB']->exec("UPDATE clients SET description = '{$new_description}' WHERE id = {$this->getId()};");
+            $this->setDescription($new_description);
         }
+
+        function deleteOne() {
+            $GLOBALS["DB"]->exec("DELETE FROM clients WHERE id = {$this->getId()};");
+        }
+
     }
 ?>
