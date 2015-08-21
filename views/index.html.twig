@@ -16,27 +16,30 @@
                 <h3><center>a word of wild hair arousal...</center></h3>
                 <hr>
 
-                <p>Create a new stylist:</p>
+                <h2><center>Welcome:</center></h2>
 
-                <form action="/stylists" method="post">
-                    <label for="name">Stylist's Name:</label>
-                    <input id="name" name="name" type="text" placeholder="Johnny Clippers">
+                <h4>Add a new stylist:</h4>
+                <ul>
+                    <form action="/stylists" method="post">
+                        <label for="name">Stylist's Name:</label>
+                        <input id="name" name="name" type="text" placeholder="Johnny Clippers">
+                        <button type="submit" class="btn-danger">Add stylist</button>
+                    </form>
+                </ul>
 
-                    <button type="submit" class="btn-danger">Add stylist</button>
-                </form>
-                <br><br>
+                <hr class="small">
+                <h4>List of current stylists:</h4>
 
-                {% if stylists is not empty %}
-                    <p>Here are all your stylists:</p>
-                    <ul>
+                <ul>
+                    {% if stylists is not empty %}
                         {% for stylist in stylists %}
-                            <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                            <a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
                         {% endfor %}
-                    </ul>
-                {% else %}
-                    <p> There are no stylists yet!</p>
-                {% endif %}
-                <br>
+                    {% else %}
+                        <p> No stylists.</p>
+                    {% endif %}
+                </ul>
+
                 <hr>
 
                 <center>
@@ -47,7 +50,7 @@
                         <button type="submit" class="btn-danger">Delete All Clients!</button>
                     </form>
                     <form action="/deleted_stylists" method="post">
-                        <button type="submit" class="btn-danger">Erase All Stylists!</button>
+                        <button type="submit" class="btn-danger">Delete All Stylists!</button>
                     </form>
                 </center>
 

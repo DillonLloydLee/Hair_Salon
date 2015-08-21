@@ -16,30 +16,32 @@
                 <h3><center>a word of wild hair arousal...</center></h3>
                 <hr>
 
-                <h2><center>{{ stylist.getName }}'s clients:</center></h2>
+                <h2><center>{{ stylist.getName }}'s Info:</center></h2>
 
-                {% if clients is not empty %}
-                    <h4>Here are the clients:</h4>
-                    <ul>
+                <h4>List of all clients:</h4>
+                <ul>
+                    {% if clients is not empty %}
                         {% for client in clients %}
-                            <li>{{ client.getDescription }}</li>
-                            <ul>
-                                <p>scheduled appointment:</p>
-                                <p>{{ client.getAppointment }}</p>
-                            </ul>
+                            <p><strong>{{ client.getDescription }}</strong></p>
+                            <p>appointment: {{ client.getAppointment }}</p>
                             <p>
                                 <form action="/client/{{ client.getId }}/edit" method="get">
-                                    <button type="submit" class="btn-danger">Edit Client</button>
+                                    <button type="submit" class="btn-xs btn-warning">edit</button>
                                 </form>
                                 <form action="/client_deleted/{{ client.getId }}" method="post">
                                     <input name="_method" type="hidden" value="delete">
-                                    <button type="submit" class="btn-danger">Delete Client</button>
+                                    <button type="submit" class="btn-xs btn-warning">delete</button>
                                 </form>
                             </p>
                         {% endfor %}
-                    </ul>
-                {% endif %}
+                    {% endif %}
 
+                    {% if clients is empty %}
+                            <p>No current clients.</p>
+                    {% endif %}
+                </ul>
+
+                <hr class="small">
                 <h4>Add a new client:</h4>
 
                 <ul>
@@ -53,20 +55,21 @@
                         <input id="appointment" name="appointment" type="date">
                         <br>
 
-                        <button type="submit" class="btn-danger">Add Client</button>
+                        <button type="submit" class="btn-xs btn-warning">Add This Client</button>
                     </form>
                 </ul>
 
+                <hr class="small">
                 <h4>Edit {{ stylist.getName }}'s details:</h4>
 
                 <ul>
                     <form action="/stylists/{{ stylist.getId }}/edit" method="get">
-                        <button type="submit" class="btn-danger">Edit name</button>
+                        <button type="submit" class="btn-xs btn-warning">Edit name</button>
                     </form>
 
                     <form action="/stylist_deleted/{{ stylist.getId }}" method="post">
                         <input name="_method" type="hidden" value="delete">
-                        <button type="submit" class="btn-danger">Delete stylist</button>
+                        <button type="submit" class="btn-xs btn-warning">Delete stylist</button>
                     </form>
                 </ul>
 
@@ -81,7 +84,7 @@
                         <button type="submit" class="btn-danger">Delete All Clients!</button>
                     </form>
                     <form action="/deleted_stylists" method="post">
-                        <button type="submit" class="btn-danger">Erase All Stylists!</button>
+                        <button type="submit" class="btn-danger">Delete All Stylists!</button>
                     </form>
                 </center>
 

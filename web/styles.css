@@ -1,7 +1,13 @@
 hr {
     color: #A8A801;
     background-color: #A8A801;
-    height: 3px;
+    height: 5px;
+}
+
+hr.small {
+    color: #A8A801;
+    background-color: #A8A801;
+    height: 2px;
 }
 
 form {
