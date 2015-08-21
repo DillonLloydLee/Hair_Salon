@@ -27,6 +27,10 @@
                                 <p>scheduled appointment:</p>
                                 <p>{{ client.getAppointment }}</p>
                             </ul>
+                            <p><form action="/client_deleted/{{ client.getId }}" method="post">
+                                <input name="_method" type="hidden" value="delete">
+                                <button type="submit" class="btn-danger">Delete Client</button>
+                            </form></p>
                         {% endfor %}
                     </ul>
                 {% endif %}
@@ -55,7 +59,7 @@
                         <button type="submit" class="btn-danger">Edit name</button>
                     </form>
 
-                    <form action="/stylists/{{ stylist.getId }}/delete" method="post">
+                    <form action="/stylist_deleted/{{ stylist.getId }}" method="post">
                         <input name="_method" type="hidden" value="delete">
                         <button type="submit" class="btn-danger">Delete stylist</button>
                     </form>

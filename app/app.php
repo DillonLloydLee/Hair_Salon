@@ -86,10 +86,17 @@
     });
 
     // delete a single stylist route.
-    $app->delete("/stylists/{id}/delete", function($id) use ($app) {
+    $app->delete("/stylist_deleted/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);
         $stylist->deleteOne();
-        return $app["twig"]->render("delete_confirmation.html.twig", array("stylists" => Stylist::getAll()));
+        return $app["twig"]->render("stylist_deleted.html.twig", array("stylists" => Stylist::getAll()));
+    });
+
+    // delete a single client route.
+    $app->delete("/client_deleted/{id}", function($id) use ($app) {
+        $client = Client::find($id);
+        $client->deleteOne();
+        return $app["twig"]->render("client_deleted.html.twig", array("stylists" => Stylist::getAll()));
     });
 
     return $app;
