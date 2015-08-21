@@ -19,7 +19,7 @@
                 <h2><center>Change {{ client.getDescription }}'s name forever:</center></h2>
 
                 <center>
-                    <form action="/stylists/{{ client.getStylistId }}/client_name" method="post">
+                    <form action="/stylists/{{ client.getId }}/client_name" method="post">
                         <input name="_method" type="hidden" value="patch">
 
                         <label for="name">Rename this client - </label>

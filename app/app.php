@@ -93,9 +93,10 @@
 
     // return with changed stylist name route.
     $app->patch("/stylists/{id}/client_name", function($id) use ($app) {
-        $name = $_POST["name"];
         $client = Client::find($id);
+        $name = $_POST["name"];
         $client->changeDescription($name);
+        $stylist = Stylist::find($client->getStylistId());
         return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
     });
 
