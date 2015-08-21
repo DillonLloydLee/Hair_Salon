@@ -45,7 +45,7 @@
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Task($description, $id, $stylist_id, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
             $test_client->save();
 
             $result = $test_client->getStylistId();
@@ -62,11 +62,11 @@
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Task($description, $id, $stylist_id, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
 
             $test_client->save();
 
-            $result = Task::getAll();
+            $result = Client::getAll();
             $this->assertEquals($test_client, $result[0]);
         }
         function test_getAll() {
@@ -78,14 +78,14 @@
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Task($description, $id, $stylist_id, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
             $test_client->save();
 
             $description2 = "Melissa Afro";
-            $test_client2 = new Task($description2, $id, $stylist_id, $appointment);
+            $test_client2 = new Client($description2, $id, $stylist_id, $appointment);
             $test_client2->save();
 
-            $result = Task::getAll();
+            $result = Client::getAll();
 
             $this->assertEquals([$test_client, $test_client2], $result);
         }
@@ -99,16 +99,16 @@
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Task($description, $id, $stylist_id, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
             $test_client->save();
 
             $description2 = "Melissa Afro";
-            $test_client2 = new Task($description2, $id, $stylist_id, $appointment);
+            $test_client2 = new Client($description2, $id, $stylist_id, $appointment);
             $test_client2->save();
 
-            Task::deleteAll();
+            Client::deleteAll();
 
-            $result = Task::getAll();
+            $result = Client::getAll();
             $this->assertEquals([], $result);
         }
 
@@ -121,14 +121,14 @@
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Task($description, $id, $stylist_id, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
             $test_client->save();
 
             $description2 = "Melissa Afro";
-            $test_client2 = new Task($description2, $id, $stylist_id, $appointment);
+            $test_client2 = new Client($description2, $id, $stylist_id, $appointment);
             $test_client2->save();
 
-            $result = Task::find($test_client->getId());
+            $result = Client::find($test_client->getId());
 
             $this->assertEquals($test_client, $result);
         }
@@ -143,7 +143,7 @@
 
             $description = "Johnny Longhair";
             $stylist_id = $test_stylist->getId();
-            $test_client = new Task($description, $id, $stylist_id, $appointment, $appointment);
+            $test_client = new Client($description, $id, $stylist_id, $appointment, $appointment);
             $test_client->save();
 
             $result = $test_client->getAppointment();
