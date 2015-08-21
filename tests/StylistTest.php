@@ -130,6 +130,25 @@
 
             $this->assertEquals([$test_stylist2], $result);
         }
+
+        function test_deleteOne_StylistClientsToo() {
+            $name = "Barbara Styler";
+            $id = null;
+            $test_stylist = new Stylist($name, $id);
+            $test_stylist->save();
+
+            $description = "Johnny Longbangs";
+            $stylist_id = $test_stylist->getId();
+            $appointment = "0000-00-00";
+            $test_client = new Client($description, $id, $stylist_id, $appointment);
+            $test_client->save();
+
+            $test_stylist->deleteOne();
+            $result = Client::getAll();
+
+            var_dump($result);
+            $this->assertEquals([], $result);
+        }
     }
 
 ?>
