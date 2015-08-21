@@ -2,12 +2,12 @@
 <head>
     <title>Dillon's Sexy Hair</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/../styles.css">
 </head>
     <body>
         <div class="container">
 
-            <img src="salon.jpg" style='position:fixed; top:0px; left:0px; height:100%; z-index:-1;'>
+            <img src="/../salon.jpg" style='position:fixed; top:0px; left:0px; height:100%; z-index:-1;'>
 
             <div class="col-sm-2"></div>
             <div class="col-sm-8">
@@ -19,7 +19,7 @@
                 <h2><center>{{ stylist.getName }}'s clients:</center></h2>
 
                 {% if clients is not empty %}
-                    <p>Here are the clients:</p>
+                    <h4>Here are the clients:</h4>
                     <ul>
                         {% for client in clients %}
                             <li>{{ client.getDescription }}</li>
@@ -37,7 +37,7 @@
                     <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
                     <label for="description">Client's Name</label>
                     <input id="description" name="description" type="text"
-                        placeholder="Thing to do">
+                        placeholder="Sally Longhair">
                     <br>
                     <label for="appointment">Appointment Date</label>
                     <input id="appointment" name="appointment" type="date">

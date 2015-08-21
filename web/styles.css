@@ -1,6 +1,6 @@
 hr {
-    color: #008B8B;
-    background-color: #008B8B;
+    color: #A8A801;
+    background-color: #A8A801;
     height: 3px;
 }
 
@@ -9,24 +9,48 @@ form {
 }
 
 p {
-    color: #7FFFD4;
+    color: #FFFF0A;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 h1 {
-    color: #7FFFD4;
+    color: #FFFF0A;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-style: italic;
+    font-weight: 900;
+}
+
+h2 {
+    color: #FFFF0A;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     font-style: italic;
     font-weight: 900;
 }
 
 h3 {
-    color: #7FFFD4;
+    color: #FFFF0A;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+h4 {
+    color: #FFFF0A;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 label {
-    color: #7FFFD4;
+    color: #FFFF0A;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+li {
+    color: #FFFF0A;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-style: italic;
+    font-weight: bold;
+}
+
+a {
+    color: #C3C312;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
