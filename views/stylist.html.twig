@@ -48,10 +48,12 @@
                     </form>
                 </ul>
 
-                <h4>Edit {{ stylist.getName }}'s name:</h4>
+                <h4>Edit {{ stylist.getName }}'s details:</h4>
 
                 <ul>
-                    <p><a href="/stylists/{{ stylist.getId }}/edit">EDIT</a></p>
+                    <form action="/stylists/{{ stylist.getId }}/edit" method="get">
+                        <button type="submit" class="btn-danger">Edit name</button>
+                    </form>
                 </ul>
 
                 <br>
