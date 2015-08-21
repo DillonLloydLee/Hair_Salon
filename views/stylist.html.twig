@@ -27,10 +27,15 @@
                                 <p>scheduled appointment:</p>
                                 <p>{{ client.getAppointment }}</p>
                             </ul>
-                            <p><form action="/client_deleted/{{ client.getId }}" method="post">
-                                <input name="_method" type="hidden" value="delete">
-                                <button type="submit" class="btn-danger">Delete Client</button>
-                            </form></p>
+                            <p>
+                                <form action="/client/{{ client.getId }}/edit" method="get">
+                                    <button type="submit" class="btn-danger">Edit Client</button>
+                                </form>
+                                <form action="/client_deleted/{{ client.getId }}" method="post">
+                                    <input name="_method" type="hidden" value="delete">
+                                    <button type="submit" class="btn-danger">Delete Client</button>
+                                </form>
+                            </p>
                         {% endfor %}
                     </ul>
                 {% endif %}

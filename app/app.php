@@ -85,6 +85,20 @@
         return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
     });
 
+    // change a client's name form route.
+    $app->get("/client/{id}/edit", function($id) use ($app) {
+        $client = Client::find($id);
+        return $app["twig"]->render("client_edit.html.twig", array("client" => $client));
+    });
+
+    // return with changed stylist name route.
+    $app->patch("/stylists/{id}/client_name", function($id) use ($app) {
+        $name = $_POST["name"];
+        $client = Client::find($id);
+        $client->changeDescription($name);
+        return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
+    });
+
     // delete a single stylist route.
     $app->delete("/stylist_deleted/{id}", function($id) use ($app) {
         $stylist = Stylist::find($id);

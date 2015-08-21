@@ -16,29 +16,18 @@
                 <h3><center>a word of wild hair arousal...</center></h3>
                 <hr>
 
-                <h3><center>-ITEM DELETED-</center></h3>
-                <br>
+                <h2><center>Change {{ client.getDescription }}'s name forever:</center></h2>
 
-                <p>Create a new stylist:</p>
+                <center>
+                    <form action="/stylists/{{ client.getStylistId }}/client_name" method="post">
+                        <input name="_method" type="hidden" value="patch">
 
-                <form action="/stylists" method="post">
-                    <label for="name">Stylist's Name:</label>
-                    <input id="name" name="name" type="text" placeholder="Johnny Clippers">
+                        <label for="name">Rename this client - </label>
+                        <input id="name" name="name" type="text">
 
-                    <button type="submit" class="btn-danger">Add stylist</button>
-                </form>
-                <br><br>
-
-                {% if stylists is not empty %}
-                    <p>Here are all your stylists:</p>
-                    <ul>
-                        {% for stylist in stylists %}
-                            <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
-                        {% endfor %}
-                    </ul>
-                {% else %}
-                    <p> There are no stylists yet!</p>
-                {% endif %}
+                        <button type="submit" class="btn-danger">Rename!</button>
+                    </form>
+                </center>
                 <br>
                 <hr>
 
