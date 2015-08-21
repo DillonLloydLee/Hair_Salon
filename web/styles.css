@@ -29,3 +29,7 @@ label {
     color: #7FFFD4;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
+
+body {
+    background-color: black;
+}
