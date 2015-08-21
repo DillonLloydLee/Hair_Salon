@@ -1,6 +1,6 @@
 # _Dillon's Sexy Hair Salon_
 
-##### _a program for organizing clients and stylists, 8-20-15_
+##### _a program for organizing clients and stylists, 8-21-15_
 
 #### By _**Dillon Lloyd Lee**_
 
