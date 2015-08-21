@@ -54,6 +54,11 @@
                     <form action="/stylists/{{ stylist.getId }}/edit" method="get">
                         <button type="submit" class="btn-danger">Edit name</button>
                     </form>
+
+                    <form action="/stylists/{{ stylist.getId }}/delete" method="post">
+                        <input name="_method" type="hidden" value="delete">
+                        <button type="submit" class="btn-danger">Delete stylist</button>
+                    </form>
                 </ul>
 
                 <br>

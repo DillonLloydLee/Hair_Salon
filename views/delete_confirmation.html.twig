@@ -1,0 +1,62 @@
+<html>
+<head>
+    <title>Dillon's Sexy Hair</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../styles.css">
+</head>
+    <body>
+        <div class="container">
+
+            <img src="/../salon.jpg" style='position:fixed; top:0px; left:0px; height:100%; z-index:-1;'>
+
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+
+                <h1><center>Dillon's Sexy Hair Salon!</center></h1>
+                <h3><center>a word of wild hair arousal...</center></h3>
+                <hr>
+
+                <h3><center>-STYLIST DELETED-</center></h3>
+                <br>
+                
+                <p>Create a new stylist:</p>
+
+                <form action="/stylists" method="post">
+                    <label for="name">Stylist's Name:</label>
+                    <input id="name" name="name" type="text" placeholder="Johnny Clippers">
+
+                    <button type="submit" class="btn-danger">Add stylist</button>
+                </form>
+                <br><br>
+
+                {% if stylists is not empty %}
+                    <p>Here are all your stylists:</p>
+                    <ul>
+                        {% for stylist in stylists %}
+                            <li><a href="/stylists/{{ stylist.getId }}">{{ stylist.getName }}</a></li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p> There are no stylists yet!</p>
+                {% endif %}
+                <br>
+                <hr>
+
+                <center>
+                    <form action="/" method="get">
+                        <button type="submit" class="btn-danger">Return Home!</button>
+                    </form>
+                    <form action="/deleted_clients" method="post">
+                        <button type="submit" class="btn-danger">Delete All Clients!</button>
+                    </form>
+                    <form action="/deleted_stylists" method="post">
+                        <button type="submit" class="btn-danger">Erase All Stylists!</button>
+                    </form>
+                </center>
+
+            </div>
+            <div class="col-sm-2"></div>
+
+        </div>
+    </body>
+</html>

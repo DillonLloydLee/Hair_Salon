@@ -85,6 +85,12 @@
         return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
     });
 
-    return $app;
+    // delete a single stylist route.
+    $app->delete("/stylists/{id}/delete", function($id) use ($app) {
+        $stylist = Stylist::find($id);
+        $stylist->deleteOne();
+        return $app["twig"]->render("delete_confirmation.html.twig", array("stylists" => Stylist::getAll()));
+    });
 
+    return $app;
 ?>
