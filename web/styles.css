@@ -35,6 +35,7 @@ h3 {
 h4 {
     color: #FFFF0A;
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    text-decoration: underline;
 }
 
 label {

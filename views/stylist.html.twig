@@ -33,18 +33,27 @@
 
                 <h4>Add a new client:</h4>
 
-                <form action="/clients" method="post">
-                    <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
-                    <label for="description">Client's Name</label>
-                    <input id="description" name="description" type="text"
-                        placeholder="Sally Longhair">
-                    <br>
-                    <label for="appointment">Appointment Date</label>
-                    <input id="appointment" name="appointment" type="date">
-                    <br>
+                <ul>
+                    <form action="/clients" method="post">
+                        <input id="stylist_id" name="stylist_id" type="hidden" value="{{ stylist.getId() }}">
+                        <label for="description">Client's Name - </label>
+                        <input id="description" name="description" type="text"
+                            placeholder="Sally Longhair">
+                        <br>
+                        <label for="appointment">Appointment Date - </label>
+                        <input id="appointment" name="appointment" type="date">
+                        <br>
 
-                    <button type="submit" class="btn-danger">Add Client</button>
-                </form>
+                        <button type="submit" class="btn-danger">Add Client</button>
+                    </form>
+                </ul>
+
+                <h4>Edit {{ stylist.getName }}'s name:</h4>
+
+                <ul>
+                    <p><a href="/stylists/{{ stylist.getId }}/edit">EDIT</a></p>
+                </ul>
+
                 <br>
                 <hr>
 

@@ -1,0 +1,49 @@
+<html>
+<head>
+    <title>Dillon's Sexy Hair</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/../styles.css">
+</head>
+    <body>
+        <div class="container">
+
+            <img src="/../salon.jpg" style='position:fixed; top:0px; left:0px; height:100%; z-index:-1;'>
+
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+
+                <h1><center>Dillon's Sexy Hair Salon!</center></h1>
+                <h3><center>a word of wild hair arousal...</center></h3>
+                <hr>
+
+                <h2><center>Change {{ stylist.getName }}'s name forever:</center></h2>
+
+                <form action="/stylists/{{ stylist.getId }}" method="post">
+                    <input name="_method" type="hidden" value="patch">
+
+                    <label for="name">Rename this stylist - </label>
+                    <input id="name" name="name" type="text">
+
+                    <button type="submit" class="btn-danger">Rename!</button>
+                </form>
+                <br>
+                <hr>
+
+                <center>
+                    <form action="/" method="get">
+                        <button type="submit" class="btn-danger">Return Home!</button>
+                    </form>
+                    <form action="/deleted_clients" method="post">
+                        <button type="submit" class="btn-danger">Delete All Clients!</button>
+                    </form>
+                    <form action="/deleted_stylists" method="post">
+                        <button type="submit" class="btn-danger">Erase All Stylists!</button>
+                    </form>
+                </center>
+
+            </div>
+            <div class="col-sm-2"></div>
+
+        </div>
+    </body>
+</html>
