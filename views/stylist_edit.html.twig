@@ -18,14 +18,16 @@
 
                 <h2><center>Change {{ stylist.getName }}'s name forever:</center></h2>
 
-                <form action="/stylists/{{ stylist.getId }}" method="post">
-                    <input name="_method" type="hidden" value="patch">
+                <center>
+                    <form action="/stylists/{{ stylist.getId }}" method="post">
+                        <input name="_method" type="hidden" value="patch">
 
-                    <label for="name">Rename this stylist - </label>
-                    <input id="name" name="name" type="text">
+                        <label for="name">Rename this stylist - </label>
+                        <input id="name" name="name" type="text">
 
-                    <button type="submit" class="btn-danger">Rename!</button>
-                </form>
+                        <button type="submit" class="btn-danger">Rename!</button>
+                    </form>
+                </center>
                 <br>
                 <hr>
 

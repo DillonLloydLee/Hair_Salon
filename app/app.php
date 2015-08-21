@@ -17,6 +17,10 @@
         'twig.path' => __DIR__.'/../views'
     ));
 
+    // allows use of _method input.
+    use Symfony\Component\HttpFoundation\Request;
+    Request::enableHttpMethodParameterOverride();
+
     // home route.
     $app->get("/", function() use ($app) {
         return $app['twig']->render('index.html.twig',
@@ -67,10 +71,18 @@
             array('stylists' => Stylist::getAll()));
     });
 
-    // change a stylist's name route.
+    // change a stylist's name form route.
     $app->get("/stylists/{id}/edit", function($id) use ($app) {
         $stylist = Stylist::find($id);
         return $app["twig"]->render("stylist_edit.html.twig", array("stylist" => $stylist));
+    });
+
+    // return with changed stylist name route.
+    $app->patch("/stylists/{id}", function($id) use ($app) {
+        $name = $_POST["name"];
+        $stylist = Stylist::find($id);
+        $stylist->changeName($name);
+        return $app["twig"]->render("stylist.html.twig", array("stylist" => $stylist, "clients" => $stylist->getClients()));
     });
 
     return $app;
